@@ -2,7 +2,7 @@ getgenv().DNS = {
     General = {
         Notifications = true,
         FOVMode = "PredictionPoint"
-    },
+    },https://www.roblox.com/users/2784799698/profile?friendshipSourceType=PlayerSearch
     Silent = {
         Main = {
             Enabled = true,
@@ -25,11 +25,11 @@ getgenv().DNS = {
             Key = "C",
             UnlockKey = "Z",
             SmoothLock = true,
-            Smoothness = 1.10,
+            Smoothness = 0.90,
             PredictMovement = true,
             Prediction = 0.1433333333392,
             Shake = true,
-            ShakeValue = 1,
+            ShakeValue = 1.55,
             Parts = {"HumanoidRootPart"}
         },
         FOV = {

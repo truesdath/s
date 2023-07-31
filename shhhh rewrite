@@ -1,6 +1,6 @@
 getgenv().Shhhh = {
   Options = {
-     Version = "Latest", -- // "Latest" for latest version
+      Version = "Latest", -- // "Latest" for latest version
       Intro = false, -- // starts a small intro
   },
   Panic = {

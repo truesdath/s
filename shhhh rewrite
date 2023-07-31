@@ -236,5 +236,3 @@ getgenv().Shhhh = {
       TacticalShotgun_Fov = "tfov",
   },
 }
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xfarzad/Shhhh/main/BETA", true))()

@@ -28,7 +28,7 @@ getgenv().DNS = {
             Smoothness = 1.42,
             PredictMovement = true,
             Prediction = 0.1433333333392,
-            Shake = false,
+            Shake = true,
             ShakeValue = 1.87,
             Parts = {"HumanoidRootPart"}
         },

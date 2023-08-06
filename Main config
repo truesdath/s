@@ -48,7 +48,7 @@ getgenv().DNS = {
         Visible = false
     },
     AutoPrediction = { -- the numbers are pings ( this is for silent + Current sets not recommended )
-        Enabled = true,
+        Enabled = false,
         ping20_30 = 0.12588,
         ping30_40 = 0.11911,
         ping40_50 = 0.12471,

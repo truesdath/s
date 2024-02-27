@@ -1,0 +1,89 @@
+-- Définition des paramètres
+local Settings = {
+    RecurringPoint = "HumanoidRootPart",
+    Hitbox = "HumanoidRootPart",
+    Keybind = Enum.KeyCode.V,  -- Modification de la touche de raccourci pour V
+    AimbotStrengthAmount = 0.2020,
+    PredictionAmountX = 0.126,  -- Ajustement de la prédiction X
+    PredictionAmountY = 0.58,  -- Ajustement de la prédiction Y
+    Smoothness = 0.05,
+    Radius = 120,
+    UsePrediction = true,
+    AimbotStrength = true,
+    FirstPerson = true,
+    ThirdPerson = true,
+    TeamCheck = false,
+    Enabled = true
+}
+
+-- Chargement de la bibliothèque de notifications
+local NotifyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
+local Notify = NotifyLibrary.Notify
+Notify({
+    Title = "x62.",
+    Description = "Script made external way",
+    Duration = 3
+})
+
+-- Vérification de l'état d'activation
+if not Settings.Enabled then
+    return
+end
+
+local AimlockTarget = nil
+
+-- Fonction pour récupérer le joueur le plus proche
+local function GetNearestPlayer()
+    local nearestPlayer
+    local nearestDistance = math.huge
+    local localPlayerPos = game.Workspace.CurrentCamera.CFrame.p
+
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player ~= game.Players.LocalPlayer then
+            local character = player.Character
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                local distance = (character.HumanoidRootPart.Position - localPlayerPos).magnitude
+                if distance < nearestDistance then
+                    nearestPlayer = player
+                    nearestDistance = distance
+                end
+            end
+        end
+    end
+
+    return nearestPlayer
+end
+
+-- Connexion à l'événement InputBegan de la souris
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Settings.Keybind then
+        if not AimlockTarget then
+            AimlockTarget = GetNearestPlayer()
+        else
+            AimlockTarget = nil
+        end
+    end
+end)
+
+-- Mettre à jour la caméra à chaque frame
+game:GetService("RunService").RenderStepped:Connect(function()
+    -- Vérifier si la cible de l'Aimlock est définie et la caméra en mode première personne
+    if AimlockTarget and Settings.FirstPerson then
+        -- Vérifier si la cible est toujours vivante
+        if AimlockTarget.Character and AimlockTarget.Character:FindFirstChild("Humanoid") and AimlockTarget.Character.Humanoid.Health > 0 then
+            -- Calculer la prédiction
+            local prediction = Vector3.new(AimlockTarget.Character.HumanoidRootPart.Velocity.X * Settings.PredictionAmountX,
+                                            AimlockTarget.Character.HumanoidRootPart.Velocity.Y * Settings.PredictionAmountY,
+                                            AimlockTarget.Character.HumanoidRootPart.Velocity.Z * Settings.PredictionAmountX)
+
+            -- Mettre à jour la caméra en vue de la cible avec prédiction et smoothness
+            game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame:Lerp(
+                CFrame.new(game.Workspace.CurrentCamera.CFrame.p, AimlockTarget.Character.HumanoidRootPart.Position + prediction),
+                Settings.Smoothness
+            )
+        else
+            -- Désactiver l'Aimlock si la cible est morte
+            AimlockTarget = nil
+        end
+    end
+end)

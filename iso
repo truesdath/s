@@ -17,9 +17,9 @@ getgenv().iso = {
 					Controllage = 0.1
 			    },
 				Displacement = { 
-					Enabled = false, 
-					DisplacementX = 0.5, 
-					DisplacementY = 0.3
+					Enabled = true, 
+					DisplacementX = 0.0872, 
+					DisplacementY = 0.0872
 				}
 			},
 			Delta = {  -- prediction
@@ -57,10 +57,10 @@ getgenv().iso = {
         Picked = true
     },
 	Renders = {
-		Visible = false,
-		Transparency = 0.3,
+		Visible = true,
+		Transparency = 0,
 		Filled = false,
-		Outline = true,
+		Outline = false,
 		Color = Color3.new(1, 1, 1),
 		Radius = 40
 	}

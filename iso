@@ -23,16 +23,16 @@ getgenv().iso = {
 				}
 			},
 			Delta = {  -- prediction
-				Vertical = 0.17, 
-				Horizontal = 0.17,
-				Steepness = 0.17
+				Vertical = 0.75, 
+				Horizontal = 0.75,
+				Steepness = 0.13
 			},
             Shake = { 
 				Enabled = true, 
 				Factor = 0.1, 
-				X = 1, 
-				Y = 1, 
-				Z = 1
+				X = 22, 
+				Y = 22, 
+				Z = 22
 			}
 	 	}
     },
@@ -40,7 +40,7 @@ getgenv().iso = {
 		Enabled = true,
 		Type = "Target", -- Target, FOV
 		Part = "HumanoidRootPart",
-		Amount = 0.135
+		Amount = 0.1399
     },
 	Resolving = {
         Enabled = false, -- keep on false its auto

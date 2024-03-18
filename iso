@@ -24,7 +24,7 @@ getgenv().iso = {
 			},
 			Delta = {  -- prediction
 				Vertical = 0.75, 
-				Horizontal = 0.13,
+				Horizontal = 0.32,
 				Steepness = 0.0631
 			},
             Shake = { 

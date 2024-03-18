@@ -7,25 +7,25 @@ getgenv().iso = {
 				Point = "HumanoidRootPart"
 			},
 			CurvePatterns = {
-				Pullback =  0.05,
+				Pullback =  0.005,
 				Pattern = "Math",
 				Configuration = { 
-					Caclulation = 0.05, 
+					Caclulation = 0.009, 
 					Delta = 0.1899, 
-					Rapid = 0.05, 
-					Offset = 0.05, 
-					Controllage = 0.05
+					Rapid = 0.009, 
+					Offset = 0.005, 
+					Controllage = 0.005
 			    },
 				Displacement = { 
 					Enabled = true, 
-					DisplacementX = 0.05, 
-					DisplacementY = 0.05
+					DisplacementX = 0.005, 
+					DisplacementY = 0.005
 				}
 			},
 			Delta = {  -- prediction
 				Vertical = 0.75, 
-				Horizontal = 0.13,
-				Steepness = 0.05
+				Horizontal = 0.1399,
+				Steepness = 0.005
 			},
             Shake = { 
 				Enabled = false, 

@@ -28,11 +28,11 @@ getgenv().iso = {
 				Steepness = 0.0631
 			},
             Shake = { 
-				Enabled = false, 
+				Enabled = true, 
 				Factor = 0.1, 
-				X = 22, 
-				Y = 22, 
-				Z = 22
+				X = 20, 
+				Y = 20, 
+				Z = 20
 			}
 	 	}
     },

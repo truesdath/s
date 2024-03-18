@@ -10,16 +10,16 @@ getgenv().iso = {
 				Pullback =  0.13,
 				Pattern = "Math",
 				Configuration = { 
-					Caclulation = 0.5, 
+					Caclulation = 0.1, 
 					Delta = 0.1899, 
-					Rapid = 0.11, 
-					Offset = 0.1, 
+					Rapid = 0.09, 
+					Offset = 0.09, 
 					Controllage = 0.1
 			    },
 				Displacement = { 
 					Enabled = true, 
 					DisplacementX = 0.0876, 
-					DisplacementY = 0.0876
+					DisplacementY = 0.1
 				}
 			},
 			Delta = {  -- prediction

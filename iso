@@ -18,12 +18,12 @@ getgenv().iso = {
 			    },
 				Displacement = { 
 					Enabled = true, 
-					DisplacementX = 0.0876, 
-					DisplacementY = 0.1
+					DisplacementX = 0.09, 
+					DisplacementY = 0.09
 				}
 			},
 			Delta = {  -- prediction
-				Vertical = 0.75, 
+				Vertical = 0.43, 
 				Horizontal = 0.13,
 				Steepness = 0.5
 			},

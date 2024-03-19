@@ -76,7 +76,7 @@ getgenv().Looten = {
         },
         SilentAim = {
             Show = false,
-            Use_Radius = true,
+            Use_Radius = false,
             Radius = 100,
             Model = 'Circle'
         },

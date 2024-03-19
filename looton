@@ -48,7 +48,7 @@ getgenv().Looten = {
         Smoothness = {
             Enabled = true,
             Smoothness = 0.07,
-            AirShot = 0.31,
+            AirShot = 0.371,
         },
         Shake = {
             Enabled = true,

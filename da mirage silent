@@ -3,7 +3,7 @@ getgenv().iso = {
 		Settings = {
 			Enabled = true,
 			Targetting = {
-				Target = "C",
+				Target = "Q",
 				Point = "Head"
 			},
 			CurvePatterns = {
@@ -57,8 +57,8 @@ getgenv().iso = {
         Picked = true
     },
 	Renders = {
-		Visible = true,
-		Transparency = 0.3,
+		Visible = false,
+		Transparency = 0,
 		Filled = false,
 		Outline = true,
 		Color = Color3.new(1, 1, 1),

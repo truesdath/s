@@ -7,19 +7,19 @@ getgenv().iso = {
 				Point = "Head"
 			},
 			CurvePatterns = {
-				Pullback =  0.11,
+				Pullback =  0.100,
 				Pattern = "Math",
 				Configuration = { 
-					Caclulation = 0.5, 
-					Delta = 0.9, 
-					Rapid = 0.8, 
-					Offset = 0.1, 
-					Controllage = 0.1
+					Caclulation = 0.100, 
+					Delta = 0.100, 
+					Rapid = 0.100, 
+					Offset = 0.100, 
+					Controllage = 0.100
 			    },
 				Displacement = { 
 					Enabled = false, 
-					DisplacementX = 0.5, 
-					DisplacementY = 0.3
+					DisplacementX = 0.100, 
+					DisplacementY = 0.100
 				}
 			},
 			Delta = {  -- prediction

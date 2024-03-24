@@ -30,8 +30,8 @@ getgenv().iso = {
             Shake = { 
 				Enabled = true, 
 				Factor = 0.1, 
-				X = 6, 
-				Y = 5, 
+				X = 5, 
+				Y = 4, 
 				Z = 1
 			}
 	 	}

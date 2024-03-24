@@ -10,10 +10,10 @@ getgenv().iso = {
 				Pullback =  0.1,
 				Pattern = "Math",
 				Configuration = { 
-					Caclulation = 076, 
+					Caclulation = 0.65, 
 					Delta = 0.11, 
-					Rapid = 0.72, 
-					Offset = 0.05, 
+					Rapid = 0.62, 
+					Offset = 0.007, 
 					Controllage = 0.7
 			    },
 				Displacement = { 

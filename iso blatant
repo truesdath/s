@@ -4,7 +4,7 @@ getgenv().iso = {
 			Enabled = true,
 			Targetting = {
 				Target = "Q",
-				Point = "Head"
+				Point = "UpperTorso"
 			},
 			CurvePatterns = {
 				Pullback =  0.164,
@@ -39,7 +39,7 @@ getgenv().iso = {
     Curve = {
 		Enabled = true,
 		Type = "Target", -- Target, FOV
-		Part = "HumanoidRootPart",
+		Part = "UpperTorso",
 		Amount = 0.1348
     },
 	Resolving = {

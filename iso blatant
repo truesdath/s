@@ -7,31 +7,31 @@ getgenv().iso = {
 				Point = "Head"
 			},
 			CurvePatterns = {
-				Pullback =  0.169,
+				Pullback =  0.164,
 				Pattern = "Math",
 				Configuration = { 
-					Caclulation = 0.169, 
-					Delta = 0.169, 
-					Rapid = 0.169, 
-					Offset = 0.169, 
-					Controllage = 0.169
+					Caclulation = 0.164, 
+					Delta = 0.164, 
+					Rapid = 0.164, 
+					Offset = 0.164, 
+					Controllage = 0.164
 			    },
 				Displacement = { 
 					Enabled = false, 
-					DisplacementX = 0.169, 
-					DisplacementY = 0.169
+					DisplacementX = 0.164, 
+					DisplacementY = 0.164
 				}
 			},
 			Delta = {  -- prediction
-				Vertical = 0.17, 
-				Horizontal = 0.17,
-				Steepness = 0.17
+				Vertical = 0.125, 
+				Horizontal = 0.125,
+				Steepness = 0.125
 			},
             Shake = { 
 				Enabled = true, 
 				Factor = 0.1, 
-				X = 1, 
-				Y = 1, 
+				X = 11, 
+				Y = 11, 
 				Z = 1
 			}
 	 	}
@@ -40,7 +40,7 @@ getgenv().iso = {
 		Enabled = true,
 		Type = "Target", -- Target, FOV
 		Part = "HumanoidRootPart",
-		Amount = 0.1399
+		Amount = 0.1348
     },
 	Resolving = {
         Enabled = false, -- keep on false its auto

@@ -11,10 +11,10 @@ getgenv().iso = {
 				Pattern = "Math",
 				Configuration = { 
 					Caclulation = 0.65, 
-					Delta = 0.11, 
-					Rapid = 0.62, 
+					Delta = 0.099, 
+					Rapid = 0.099, 
 					Offset = 0.007, 
-					Controllage = 0.7
+					Controllage = 0.99
 			    },
 				Displacement = { 
 					Enabled = false, 

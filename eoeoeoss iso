@@ -11,10 +11,10 @@ getgenv().iso = {
 				Pattern = "Math",
 				Configuration = { 
 					Caclulation = 0.32, 
-					Delta = 0.1292655, 
-					Rapid = 0.6, 
-					Offset = 0.04, 
-					Controllage = 0.99
+					Delta = 0.11, 
+					Rapid = 0.648293, 
+					Offset = 0.4, 
+					Controllage = 0.482
 			    },
 				Displacement = { 
 					Enabled = false, 
@@ -23,8 +23,8 @@ getgenv().iso = {
 				}
 			},
 			Delta = {  -- prediction
-				Vertical = 0.87, 
-				Horizontal = 0.44,
+				Vertical = 0.52, 
+				Horizontal = 0.11,
 				Steepness = 0.1
 			},
             Shake = { 

@@ -30,8 +30,8 @@ _G.Aiming = {
 
         Shake = {
             On = true,
-            LeftRight = 2,
-            UpDown = 3,
+            LeftRight = 1,
+            UpDown = 2,
             Division = 1, -- keep at 1 or above
         },
         

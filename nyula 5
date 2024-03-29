@@ -31,8 +31,8 @@ _G.Aiming = {
         Shake = {
             On = true,
             LeftRight = 1,
-            UpDown = 2,
-            Division = 1, -- keep at 1 or above
+            UpDown = 1,
+            Division = 0.1, -- keep at 1 or above
         },
         
         FOV = {
@@ -52,13 +52,13 @@ _G.Aiming = {
         Parts = {"HumanoidRootPart"},
 
         Prediction = 0.12, -- Linked up with auto pred
-        AutoPred = false,
+        AutoPred = true,
         
-        SeperatePrediction = false, -- New In V5
-        HorizontalPrediction = 0.12643, -- Linked up with auto pred -- New In V5
-        VerticalPrediction = 0.06, -- Not linked up with auto pred -- New In V5
+        SeperatePrediction = true, -- New In V5
+        HorizontalPrediction = 0.12, -- Linked up with auto pred -- New In V5
+        VerticalPrediction = 0.12, -- Not linked up with auto pred -- New In V5
 
-        AutoPred = false,
+        AutoPred = true,
         Hitchance=300000,
 
         JumpOffset = false,

@@ -46,12 +46,12 @@ _G.Aiming = {
         },
     },
     SilentAim = { -- Silent Aim is always better when using desync
-        Toggle = false, -- Entire Silent Aim doesn't load if not being used
+        Toggle = true, -- Entire Silent Aim doesn't load if not being used
         OnlyWhenInFov = false,
         OnlyWhenVisible = false,
         Parts = {"HumanoidRootPart"},
 
-        Prediction = 0.13443, -- Linked up with auto pred
+        Prediction = 0.12, -- Linked up with auto pred
         AutoPred = false,
         
         SeperatePrediction = false, -- New In V5
@@ -59,7 +59,7 @@ _G.Aiming = {
         VerticalPrediction = 0.06, -- Not linked up with auto pred -- New In V5
 
         AutoPred = false,
-        Hitchance=100,
+        Hitchance=300000,
 
         JumpOffset = false,
         JumpOffsetVal = 0, -- Negative for Down | Positive for Up
@@ -162,7 +162,7 @@ _G.Aiming = {
         TargetInfo = false,
     },
     TriggerBot = { 
-        Toggle = false,
+        Toggle = true,
         Delay = 0, -- 1000 in gui = 1 here (1 in gui is 0.001 delay aka 1ms idek if lua goes that low but gl blud)
         Precision = { -- How close your mouse has to be 
             X = 1.5,

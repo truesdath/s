@@ -22,8 +22,8 @@ _G.Aiming = {
         AutoPred = false,
 
         SeperatePrediction = true,
-        HorizontalPrediction = 0.12, -- Linked up with auto pred
-        VerticalPrediction = 0.74, -- Not linked up with auto pred
+        HorizontalPrediction = 0.74, -- Linked up with auto pred
+        VerticalPrediction = 0.12, -- Not linked up with auto pred
 
         JumpOffset = true,
         JumpOffsetVal = 0.04, -- Negative for Down | Positive for Up

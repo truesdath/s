@@ -1,5 +1,5 @@
 _G.Aiming = {
-    Key = "Q", -- Capital Letters Only 
+    Key = "E", -- Capital Letters Only 
     Aiming = "Namecall", -- "Namecall", "Index", "OldNyula" -- OldNyula is an FPS killer
     Mode = "Toggle", -- "Toggle" or "Hold" or "Always"
     ["Face-Target"] = false, -- Faces the person you're locked onto (If you use with macro it'll macro for you)
@@ -11,28 +11,28 @@ _G.Aiming = {
         Enabled = true,
 
         OnlyWhenInFov = false,
-        OnlyWhenVisible = false,
+        OnlyWhenVisible = true,
 
-        Parts = {"HumanoidRootPart"}, -- "Head", "HumanoidRootPart", "LowerTorso", {"Head","HumanoidRootPart","LowerTorso"}, "All", {"All"}
+        Parts = {"Head"}, -- "Head", "HumanoidRootPart", "LowerTorso", {"Head","HumanoidRootPart","LowerTorso"}, "All", {"All"}
 
         Smoothing = "New", -- "New" or "Classic" or "Off" <- Off IS THE MOST BLATANT, Classic Doesn't work on UWP
-        Smoothness = 0.132,
+        Smoothness = 0.102,
 
         Prediction = 0.12, -- Linked up with auto pred
         AutoPred = false,
 
         SeperatePrediction = true,
-        HorizontalPrediction = 0.75, -- Linked up with auto pred
-        VerticalPrediction = 0.12, -- Not linked up with auto pred
+        HorizontalPrediction = 0.12, -- Linked up with auto pred
+        VerticalPrediction = 0.74, -- Not linked up with auto pred
 
-        JumpOffset = false,
-        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+        JumpOffset = true,
+        JumpOffsetVal = 0.04, -- Negative for Down | Positive for Up
 
         Shake = {
-            On = true,
-            LeftRight = 1,
-            UpDown = 1,
-            Division = 0.1, -- keep at 1 or above
+            On = false,
+            LeftRight = 0,
+            UpDown = 0,
+            Division = 1, -- keep at 1 or above
         },
         
         FOV = {
@@ -48,21 +48,21 @@ _G.Aiming = {
     SilentAim = { -- Silent Aim is always better when using desync
         Toggle = true, -- Entire Silent Aim doesn't load if not being used
         OnlyWhenInFov = false,
-        OnlyWhenVisible = false,
-        Parts = {"HumanoidRootPart"},
+        OnlyWhenVisible = true,
+        Parts = {"UpperTorso"},
 
         Prediction = 0.12, -- Linked up with auto pred
-        AutoPred = true,
+        AutoPred = false,
         
         SeperatePrediction = true, -- New In V5
         HorizontalPrediction = 0.12, -- Linked up with auto pred -- New In V5
         VerticalPrediction = 0.12, -- Not linked up with auto pred -- New In V5
 
-        AutoPred = true,
-        Hitchance=300000,
+        AutoPred = false,
+        Hitchance=100,
 
-        JumpOffset = false,
-        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+        JumpOffset = true,
+        JumpOffsetVal = 0.04, -- Negative for Down | Positive for Up
         
         Shake = {
             On = false,
@@ -137,8 +137,8 @@ _G.Aiming = {
     },
     Visuals = {
         Dot = { -- SilentAim Only
-            Toggle = true,
-            Color = Color3.fromRGB(119,0,255),
+            Toggle = false,
+            Color = Color3.fromRGB(000,000,000),
             Rainbow = false,
         },
         Tracer = {
@@ -147,7 +147,7 @@ _G.Aiming = {
             Rainbow = false,
         },
         Highlight = {
-            Toggle = true,
+            Toggle = false,
             Color = Color3.fromRGB(119,0,255),
             Rainbow = false,
         },
@@ -162,7 +162,7 @@ _G.Aiming = {
         TargetInfo = false,
     },
     TriggerBot = { 
-        Toggle = true,
+        Toggle = false,
         Delay = 0, -- 1000 in gui = 1 here (1 in gui is 0.001 delay aka 1ms idek if lua goes that low but gl blud)
         Precision = { -- How close your mouse has to be 
             X = 1.5,
@@ -171,8 +171,8 @@ _G.Aiming = {
         }
     },
     Orbit = {
-        Toggle = false, -- fix this !!!!!! 💣💣💣💣💣💣
-        Mode = "Connect", -- "Disconnect" or "Connect"
+        Toggle = false, -- fix this !!!!!! ðŸ’£ðŸ’£ðŸ’£ðŸ’£ðŸ’£ðŸ’£
+        Mode = "disconnect", -- "Disconnect" or "Connect"
         DistanceLimiter = false, -- true for hood modded
         DistanceLimit = 40, -- 30-50 for Hood Modded
         Speed = 8,

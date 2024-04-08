@@ -1,0 +1,200 @@
+-- https://discord.gg/qu25kkNVhT for tutorial on how to set up
+-- Credits to liamm#0223 for making the script originally
+-- Fixed by hxyg
+
+getgenv().LuckyHub = {
+    Settings = {
+        MinimumPlayers = 1,
+        MaximumPlayers = 35,
+        RefreshServersDelay = 200,
+    },
+    Webhook = {
+        WebhookURL = "https://discord.com/api/webhooks/1226987124306219170/kvoP9o1lPZPMSJAMC6hgachMRCkvl5bT4zD7rNtwTBlpgSHrMtTGqjWZWDUNSJW1jppI",
+        LogInfo = {Enabled = true, Color = 65280}, -- // https://www.spycolor.com/ to convert rgb to decimal
+        LogWarnings = {Enabled = false, Color = 16776960},
+        LogErrors = {Enabled = false, Color = 16711680},
+    },
+}
+
+-- // console
+local console = {}
+
+function console.add(name, color)
+    console[name] = function(...)
+
+        local args = {...}
+
+        for i,v in next, args do
+            args[i] = tostring(v)
+        end
+
+        local message = table.concat(args, ' ')
+
+        local http_request = http and http.request or http_request or request or httprequest
+        local response = http_request({
+            Url = LuckyHub.Webhook.WebhookURL,
+            Method = 'POST',
+            Headers = {['Content-Type'] = 'application/json'},
+            Body = game:GetService("HttpService"):JSONEncode({
+            ["username"] = "x62. farm",
+            ["avatar_url"] = "https://cdn.discordapp.com/attachments/1138478366459174913/1226938400339263498/IMG_4503.jpg?ex=6626966e&is=6614216e&hm=4bc644fd9e8f9d5b6cf512a74cfd87bc82bc684fb923b2a815e21357c4fcddc3&",
+                ["embeds"] = {{
+                    ["title"] = "notify",
+                    ["description"] = "",
+                    ["type"] = "rich",
+                    ["color"] = 00000,
+                    ["fields"] = {
+                        {
+                            ["name"] = "**Information**",
+                            ["value"] = message,
+                            ["inline"] = true
+                        },
+                    },
+                }}
+            })
+        });
+    end
+end
+
+local LogInfoPath = LuckyHub.Webhook.LogInfo
+local LogWarningsPath = LuckyHub.Webhook.LogWarnings
+local LogErrorsPath = LuckyHub.Webhook.LogErrors
+
+console.add('error', LogErrorsPath.Color)
+console.add('warn', LogWarningsPath.Color)
+console.add('info', LogInfoPath.Color)
+
+-- // init
+
+if not isfolder('dahood_farm') then
+    console.info("creating 'dahood_farm', 'dahood_farm/last.txt', 'dahood_farm/looted.txt' for first time startup")
+    makefolder('dahood_farm')
+    writefile('dahood_farm/last.txt', tostring(0))
+    writefile('dahood_farm/looted.txt', '[]')
+end
+
+task.spawn(function()
+    local str = ('|/-\\'):split('')
+    local looted = 0
+
+    for i,v in next, game:GetService('HttpService'):JSONDecode(readfile('dahood_farm/looted.txt')) do
+        looted += 1
+    end
+end)
+
+if LogWarningsPath.Enabled then console.warn('waiting for game to load...') end
+repeat task.wait() until game:IsLoaded()
+
+-- // variables
+local players = game:GetService('Players')
+local http = game:GetService('HttpService')
+local teleportservice = game:GetService('TeleportService')
+local localplayer = players.LocalPlayer
+local character = localplayer.Character or localplayer.CharacterAdded:Wait()
+local rootpart
+
+-- // functions
+function add_looted(jobid)
+    local looted = http:JSONDecode(readfile('dahood_farm/looted.txt'))
+    looted[jobid] = tick()
+    writefile('dahood_farm/looted.txt', http:JSONEncode(looted))
+end
+
+function get_eggs()
+    local eggs = {}
+
+    for i,v in next, workspace.Ignored:GetChildren() do
+        if v.Name:match('^Egg') then
+            table.insert(eggs, v)
+        end
+    end
+
+    return eggs
+end
+
+function collect_eggs()
+    local eggs = get_eggs()
+
+    if LogInfoPath.Enabled then console.info(#eggs, 'eggs found') end
+       
+    for i,v in next, eggs do
+        firetouchinterest(rootpart, v, 0)
+        firetouchinterest(rootpart, v, 1)
+        if LogInfoPath.Enabled then console.info('egg collected') end
+    end
+end
+
+function refresh_cache()
+    if LogInfoPath.Enabled then console.info('refreshing server cache') end
+
+    local servers = {}
+    local page
+
+    repeat
+    local response = http:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/'.. game.PlaceId ..'/servers/Public?sortOrder=Dsc&limit=100' .. (page and '&cursor=' .. page or '')))
+    for idx, server in next, response.data do
+        table.insert(servers, server)
+    end
+    page = response.nextPageCursor
+    until not page
+
+    writefile('dahood_farm/last.txt', tostring(tick()))
+    writefile(
+        'dahood_farm/server_cache.txt',
+        http:JSONEncode(servers)
+    )
+end
+
+function find_new_server()
+    local servers = http:JSONDecode(readfile('dahood_farm/server_cache.txt'))
+    local looted = http:JSONDecode(readfile('dahood_farm/looted.txt'))
+   
+    while task.wait(0.5) do
+
+        if LogInfoPath.Enabled then console.info(('searching %s available servers...'):format(#servers)) end
+
+        for idx, server in next, servers do
+            if (
+                (server.id ~= game.JobId) and
+                (tick() - (looted[server.id] or 0) > 3600) and
+                (server.playing) and
+                (server.playing > LuckyHub.Settings.MinimumPlayers) and
+                (server.playing < LuckyHub.Settings.MaximumPlayers)
+            ) then
+                add_looted(server.id)
+                if LogInfoPath.Enabled then console.info(("teleporting to new server '%s' with %s/%s players"):format(server.id, server.playing, server.maxPlayers)) end
+
+                xpcall(function()
+                    teleportservice:TeleportToPlaceInstance(game.PlaceId, server.id)
+                end, function()
+                    if LogErrorsPath.Enabled then console.error('teleport error, retrying') end
+                    find_new_server()
+                end)
+
+                return
+            end
+        end   
+    end
+end
+
+-- // script
+
+if #get_eggs() == 0 then
+    if LogWarningsPath.Enabled then console.warn('server has 0 eggs, skipping') end
+else
+    if LogWarningsPath.Enabled then console.warn('waiting for character to load...') end
+    character:WaitForChild('FULLY_LOADED_CHAR')
+    rootpart = character:WaitForChild('HumanoidRootPart')   
+    collect_eggs()
+end
+
+if tick() - tonumber(readfile('dahood_farm/last.txt')) > LuckyHub.Settings.RefreshServersDelay then
+    refresh_cache()
+end
+
+teleportservice.TeleportInitFailed:Connect(function()
+    if LogErrorsPath.Enabled then console.error('teleport error, retrying') end
+    find_new_server()
+end)
+
+find_new_server()

@@ -16,7 +16,7 @@ getgenv().Looten = {
             Notification = true,
         },
         HitPart = {
-            NearestPoint = true,
+            NearestPoint = false,
             HitPart = 'HumanoidRootPart',
         },
         Prediction = {
@@ -75,7 +75,7 @@ getgenv().Looten = {
             Model = 'Circle'
         },
         SilentAim = {
-            Show = true,
+            Show = false,
             Use_Radius = false,
             Radius = 3008.2,
             Model = 'Circle'

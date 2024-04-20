@@ -59,7 +59,7 @@ getgenv().Looten = {
         HitPart = {
             NearestPoint = false,
             AirShot = true,
-            Part = 'HumanoidRootPart',
+            Part = 'UpperTorso',
             AirPart = 'Head',
         },
         AutoUnLock = {

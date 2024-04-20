@@ -22,7 +22,7 @@ getgenv().Looten = {
         Prediction = {
             Enabled = true,
             AutoMated = false, -- auto prediction
-            Prediction = 0.1899,
+            Prediction = 0.13399,
         },
     },
     ['CamLock'] = {
@@ -39,7 +39,7 @@ getgenv().Looten = {
         },
         Prediction = {
             Enabled = true,
-            Prediction = 0.12370,
+            Prediction = 0.129,
         },
         Style = {
             First = 'Elastic',
@@ -47,24 +47,24 @@ getgenv().Looten = {
         },
         Smoothness = {
             Enabled = true,
-            Smoothness = 0.07,
-            AirShot = 0.371,
+            Smoothness = 0.1313,
+            AirShot = 0.59293,
         },
         Shake = {
             Enabled = true,
-            DirectionX = 9,
-            DirectionY = 9,
-            DirectionZ = 7,
+            DirectionX = 2,
+            DirectionY = 1,
+            DirectionZ = 1,
         },
         HitPart = {
             NearestPoint = true,
             AirShot = true,
             Part = 'HumanoidRootPart',
-            AirPart = 'HumanoidRootPart',
+            AirPart = 'Head',
         },
         AutoUnLock = {
-            Reloading = false,
-            Typing = false,
+            Reloading = true,
+            Typing = true,
         },
     },
     ['Fov'] = {

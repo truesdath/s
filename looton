@@ -47,17 +47,17 @@ getgenv().Looten = {
         },
         Smoothness = {
             Enabled = true,
-            Smoothness = 0.1313,
-            AirShot = 0.59293,
+            Smoothness = 0.1999,
+            AirShot = 0.58281,
         },
         Shake = {
-            Enabled = true,
+            Enabled = false,
             DirectionX = 2,
             DirectionY = 1,
             DirectionZ = 1,
         },
         HitPart = {
-            NearestPoint = true,
+            NearestPoint = false,
             AirShot = true,
             Part = 'HumanoidRootPart',
             AirPart = 'Head',
@@ -75,9 +75,9 @@ getgenv().Looten = {
             Model = 'Circle'
         },
         SilentAim = {
-            Show = false,
+            Show = true,
             Use_Radius = false,
-            Radius = 100,
+            Radius = 3008.2,
             Model = 'Circle'
         },
     },

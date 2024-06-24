@@ -1,0 +1,96 @@
+getgenv().script_key = script_key; -- DO NOT TOUCH
+getgenv().Howl = {
+    ['Keybind'] = {
+        Aimbot = Enum.KeyCode.E,
+    },
+    ['Aimbot'] = {
+        Prediction = 0.2,
+
+        ['Shake'] = {
+            Enabled = false,
+            Amount = 80
+        },
+        ['Smoothness'] = {
+            Amount = 0.08,
+            Style = "Elastic",
+            Direction = "InOut"
+        },
+        ['FieldOfView'] = {
+            Enabled = false, -- // Visibility
+            Size = 225,
+            Color = Color3.fromRGB(255, 255, 255),
+            Transparency = 1,
+            Filled = false
+        }
+    },
+    ['Silent'] = {
+        Prediction = 0.1247,
+        Detection = {Close = 35, Mid = 65, Far = math.huge}, -- // These are distance values, NOT FOV.
+
+        ['SpecificDis'] = {
+            Enabled = false,
+            Prediction = {Close = 0.138, Mid = 0.1247, Far = 0.123}
+        },
+        ['Offsets'] = {
+            Jump = {Amount = -1.67},
+            Fall = {Amount = -1.45},
+        }
+    },
+    ['HitBox'] = {
+        Part = "Head",
+        
+        ['Air'] = {
+            Enabled = false,
+            AirPart = "LowerTorso"
+        }
+    },
+    ['Checks'] = {
+        KnockedChecks = true,
+        TargetDeath = true,
+        PlayerDeath = true
+    },
+    ['Resolver'] = {
+        Enabled = false,
+    },
+    ['Macro'] = {
+        Enabled = true,
+        Keybind = "x",
+        Speed = 0.05,
+        Type = "First" -- // "First", "Third"
+    },
+    ['ESP'] = {
+        ['Distance'] = {
+            enabled = false,
+            color = Color3.fromRGB(255, 255, 255),
+
+            outline = false,
+            outlineColor = Color3.fromRGB(0, 0, 0)
+        },
+        ['Weapon'] = {
+            enabled = false,
+            color = Color3.fromRGB(255, 255, 255),
+
+            outline = false,
+            outlineColor = Color3.fromRGB(0, 0, 0)
+        },
+        ['Box'] = {
+            enabled = false,
+
+            health = false,
+
+            boxColor = Color3.fromRGB(255, 0, 0),
+
+            boxOutline = false,
+            boxOutlineColor = Color3.fromRGB(0, 0, 0),
+        },
+        ['Name'] = {
+            enabled = false,
+            color = Color3.fromRGB(255, 255, 255),
+
+            outline = false,
+            outlineColor = Color3.fromRGB(0, 0, 0)
+        },
+    },
+}
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ab17279cd447342213d1fa605580ddda.lua"))()

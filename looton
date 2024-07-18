@@ -42,8 +42,8 @@ getgenv().Looten = {
             Prediction = 0.129,
         },
         Style = {
-            First = 'Elastic',
-            Second = 'Sine'
+            First = 'Sine',
+            Second = 'InOut'
         },
         Smoothness = {
             Enabled = true,
